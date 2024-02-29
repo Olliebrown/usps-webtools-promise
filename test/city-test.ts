@@ -5,6 +5,7 @@ import USPS from "../src/usps.js";
 
 const usps = new USPS({
   userId: process.env["USPS_ID"]!,
+  userPassword: process.env["USPS_PASSWORD"]!,
 });
 /*
 // Error typeguard: TODO
@@ -25,6 +26,7 @@ test("#cityStateLookup() should return the proper case", async (t) => {
   const uspsCase = new USPS({
     properCase: true,
     userId: process.env["USPS_ID"]!,
+    userPassword: process.env["USPS_PASSWORD"]!,
   });
   const address = (await uspsCase.cityStateLookup(
     "98031",

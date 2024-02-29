@@ -5,6 +5,7 @@ import USPS from "../src/usps.js";
 
 const usps = new USPS({
   userId: process.env["USPS_ID"]!,
+  userPassword: process.env["USPS_PASSWORD"]!,
 });
 
 test("Address verify should validate apartment", async (t) => {
@@ -22,6 +23,7 @@ test("Address return proper case", async (t) => {
   const uspsCase = new USPS({
     properCase: true,
     userId: process.env["USPS_ID"]!,
+    userPassword: process.env["USPS_PASSWORD"]!,
   });
   const address = await uspsCase.verify({
     Address1: "11205 SE 233RD PL.",

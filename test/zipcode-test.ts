@@ -4,6 +4,7 @@ import USPS, { type Address } from "../src/usps.js";
 
 const usps = new USPS({
   userId: process.env["USPS_ID"]!,
+  userPassword: process.env["USPS_PASSWORD"]!,
 });
 
 test("Zipcode Lookup should return the address with zip", async (t) => {
@@ -20,6 +21,7 @@ test("Zipcode Lookup should return proper case", async (t) => {
   const uspsCase = new USPS({
     properCase: true,
     userId: process.env["USPS_ID"]!,
+    userPassword: process.env["USPS_PASSWORD"]!,
   });
   const address = (await uspsCase.zipCodeLookup({
     Address1: "121 EMBARCADERO WEST",

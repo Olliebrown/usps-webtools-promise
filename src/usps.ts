@@ -16,6 +16,7 @@ export interface Config {
   properCase?: boolean;
   staging?: boolean;
   userId: string;
+  userPassword: string;
 }
 
 export interface Address {
@@ -42,8 +43,8 @@ export default class {
   config: Config;
 
   constructor(config: Config) {
-    if (!config?.userId) {
-      throw new Error("Must pass USPS userId");
+    if (!config?.userId || !config?.userPassword) {
+      throw new Error("Must pass USPS userId and userPassword");
     }
     this.config = {
       ...config,

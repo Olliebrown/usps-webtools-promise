@@ -5,6 +5,7 @@ import USPS from "../src/usps.js";
 
 const usps = new USPS({
     userId: process.env["USPS_ID"]!,
+    userPassword: process.env["USPS_PASSWORD"]!,
 });
 
 const fourAddresses = [
@@ -100,6 +101,7 @@ test("Multiple address verify should handle proper case the same as single verif
     const uspsCase = new USPS({
         properCase: true,
         userId: process.env["USPS_ID"]!,
+        userPassword: process.env["USPS_PASSWORD"]!,
     });
     const addresses = await uspsCase.verifyMultiple(moreAddresses);
     t.is(addresses[0]?.Address1, "11205 SE 233rd Pl");

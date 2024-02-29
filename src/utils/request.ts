@@ -93,7 +93,8 @@ export default async (
   const xmlObject = {
     [requestName]: {
       ...parameters,
-      // Put the UserID in as an attribute
+      // Put the UserID and userPassword in as an attributes
+      "@PASSWORD": config.userPassword,
       "@USERID": config.userId,
     },
   };
